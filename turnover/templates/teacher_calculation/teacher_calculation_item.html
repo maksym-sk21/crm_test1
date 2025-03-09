@@ -1,0 +1,17 @@
+<tr id="teacher-calculation-{{ teacher_calculation.id }}">
+    <td>{{ teacher_calculation.turnover}}</td>
+    <td>{{ teacher_calculation.hourly_rate }}</td>
+    <td>{{ teacher_calculation.hours_spent }}</td>
+    <td>{{ teacher_calculation.salary_teacher }}</td>
+    <td>{{ teacher_calculation.budget_teacher }}</td>
+    <td>
+        <div class="btn-group" role="group">
+            <button hx-get="{% url 'edit_teacher_calculation' teacher_calculation.id %}"
+                    hx-target="#teacher-calculation-{{ teacher_calculation.id }}"
+                    hx-swap="outerHTML"
+                    class="btn btn-success btn-sm">
+                <i class="bi bi-pencil"></i>
+            </button>
+        </div>
+    </td>
+</tr>

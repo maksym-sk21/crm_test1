@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}STARLINGUA{% endblock %}
+
+{% block content %}
+<div class="row" style="min-height: 90vh; padding-bottom: 80px;">
+    <div class="col-12">
+        {% if user.is_authenticated %}
+            <div class="mb-3">
+                <button class="btn btn-primary" hx-get="{% url 'turnover_list' %}" hx-trigger="click" hx-target="#accounting-content">Turnover</button>
+                <button class="btn btn-primary" hx-get="{% url 'teacher_calculation_list' %}" hx-trigger="click" hx-target="#accounting-content">Teacher Calculation</button>
+                <button class="btn btn-primary" hx-get="{% url 'student_calculation_list' %}" hx-trigger="click" hx-target="#accounting-content">Student Calculation</button>
+                <button class="btn btn-primary" hx-get="{% url 'salary_list' %}" hx-trigger="click" hx-target="#accounting-content">Salaries</button>
+                <button class="btn btn-primary" hx-get="{% url 'school_list' %}" hx-trigger="click" hx-target="#accounting-content">School</button>
+                <button class="btn btn-primary" hx-get="{% url 'manage_schedule' %}" hx-trigger="click" hx-target="#accounting-content">Schedule</button>
+            </div>
+            <div id="accounting-content" hx-get="{% url 'turnover_list' %}" hx-trigger="load"></div>
+
+        {% else %}
+            <div class="text-center">
+                <h2>Please log in to your account</h2>
+                <a href="{% url 'account_login' %}" class="btn btn-primary">Log In</a>
+                <a href="{% url 'account_signup' %}" class="btn btn-secondary">Sign Up</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+<tr id="turnover-{{ turnover.id }}">
+    <td colspan="9">
+        <form method="post"
+              hx-post="{% url 'edit_turnover' turnover.id %}"
+              hx-target="#turnover-{{ turnover.id }}"
+              hx-swap="outerHTML">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>{{ form.student }}</td>
+                    <td>{{ form.teacher }}</td>
+                    <td>{{ form.previous_hours }}</td>
+                    <td>{{ form.previous_balance }}</td>
+                    <td>{{ form.current_hours }}</td>
+                    <td>{{ form.current_payment }}</td>
+                    <td>{{ form.total_hours }}</td>
+                    <td>{{ form.profit }}</td>
+
+                    <td>
+                        <button type="submit" class="btn btn-success btn-sm">Save</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </td>
+</tr>

@@ -1,0 +1,41 @@
+    <div class="mb-3">
+        <form id="add-turnover-form"
+              hx-post="{% url 'add_turnover' %}"
+              hx-target="#turnover-list"
+              hx-swap=innerHTML">
+            {% csrf_token %}
+            <table class="table table-striped table-bordered">
+            <tr>
+                <td>{{ form.student }}</td>
+                <td>{{ form.teacher }}</td>
+                <td>{{ form.previous_hours }}</td>
+                <td>{{ form.previous_balance }}</td>
+                <td>{{ form.current_hours }}</td>
+                <td>{{ form.current_payment }}</td>
+                <td>{{ form.total_hours }}</td>
+                <td>{{ form.profit }}</td>
+                <td>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Student</th>
+                <th scope="col">Teacher</th>
+                <th scope="col">Previous Hours</th>
+                <th scope="col">Previous Balance</th>
+                <th scope="col">Current Hours</th>
+                <th scope="col">Current Payment</th>
+                <th scope="col">Total Hours</th>
+                <th scope="col">Profit</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody id="turnover-list">
+            {% include "turnover/turnover_list_partial.html" %}
+        </tbody>
+    </table>

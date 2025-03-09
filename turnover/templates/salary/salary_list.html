@@ -1,0 +1,16 @@
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Student - Teacher</th>
+                <th>Дохід на місяць</th>
+                <th>Бюджет на місяць</th>
+                <th>ЗП Admin</th>
+                <th>ЗП Owner</th>
+            </tr>
+        </thead>
+        <tbody id="salary-list">
+            {% for salary in salaries %}
+                {% include "salary/salary_item.html" with salary=salary %}
+            {% endfor %}
+        </tbody>
+    </table>

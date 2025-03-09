@@ -1,0 +1,16 @@
+<tr id="lesson-{{ lesson.id }}">
+    <td>{{ form.student }}</td>
+    <td>{{ form.teacher }}</td>
+    <td>{{ form.date }}</td>
+    <td>{{ form.start_time }}</td>
+    <td>{{ form.duration }}</td>
+    <td>{{ form.conducted}}</td>
+    <td>
+        <button hx-post="{% url 'edit_lesson' lesson.id %}"
+                hx-target="#lesson-{{ lesson.id }}"
+                hx-swap="outerHTML"
+                class="btn btn-success btn-sm">
+            Save
+        </button>
+    </td>
+</tr>

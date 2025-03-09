@@ -1,0 +1,16 @@
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Student - Teacher</th>
+                <th>Загальний дохід</th>
+                <th>Бюджет школи</th>
+                <th>Бюджет Admin</th>
+                <th>Бюджет Owner</th>
+            </tr>
+        </thead>
+        <tbody id="school-list">
+            {% for school in schools %}
+                {% include "school/school_item.html" with school=school %}
+            {% endfor %}
+        </tbody>
+    </table>

@@ -1,0 +1,17 @@
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Student - Teacher</th>
+                <th>Вартість години</th>
+                <th>Витрачено грошей</th>
+                <th>Залишок годин</th>
+                <th>Залишок грошей</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody id="student-calculation-list">
+            {% for student_calculation in student_calculations %}
+                {% include "student_calculation/student_calculation_item.html" with student_calculation=student_calculation %}
+            {% endfor %}
+        </tbody>
+    </table>

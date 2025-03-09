@@ -1,0 +1,22 @@
+<tr id="teacher-calculation-{{ teacher_calculation.id }}">
+    <td colspan="9">
+        <form method="post"
+              hx-post="{% url 'edit_teacher_calculation' teacher_calculation.id %}"
+              hx-target="#teacher-calculation-{{ teacher_calculation.id }}"
+              hx-swap="outerHTML">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>{{ form.turnover }}</td>
+                    <td>{{ form.hourly_rate }}</td>
+                    <td>{{ form.hours_spent }}</td>
+                    <td>{{ form.salary_teacher }}</td>
+                    <td>{{ form.budget_teacher }}</td>
+                    <td>
+                        <button type="submit" class="btn btn-success btn-sm">Save</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </td>
+</tr>

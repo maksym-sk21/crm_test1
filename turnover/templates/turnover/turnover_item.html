@@ -1,0 +1,26 @@
+<tr id="turnover-{{ turnover.id }}">
+    <td>{{ turnover.student.name }} {{ turnover.student.surname }}</td>
+    <td>{{ turnover.teacher.name }}</td>
+    <td>{{ turnover.previous_hours }}</td>
+    <td>{{ turnover.previous_balance }}</td>
+    <td>{{ turnover.current_hours }}</td>
+    <td>{{ turnover.current_payment }}</td>
+    <td>{{ turnover.total_hours }}</td>
+    <td>{{ turnover.profit }}</td>
+    <td>
+        <div class="btn-group" role="group">
+            <button hx-get="{% url 'edit_turnover' turnover.id %}"
+                    hx-target="#turnover-{{ turnover.id }}"
+                    hx-swap="outerHTML"
+                    class="btn btn-success btn-sm">
+                <i class="bi bi-pencil"></i>
+            </button>
+            <button hx-delete="{% url 'delete_turnover' turnover.id %}"
+                    hx-target="#turnover-list"
+                    hx-confirm="Are you sure?"
+                    class="btn btn-danger btn-sm">
+                <i class="bi bi-trash"></i>
+            </button>
+        </div>
+    </td>
+</tr>
